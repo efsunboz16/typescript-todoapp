@@ -6,9 +6,12 @@ function App() {
 
 
   return (
-    <div className="w-full bg-amber-100 h-screen flex flex-col items-center pt-28">
-      <Todocreate />
-      <Todolist />
+    <div className="w-full bg-amber-100 h-screen flex  ">
+      <div className="w-full  h-fit flex flex-col justify-center items-center relative top-32">
+        <Todocreate />
+        <Todolist />
+      </div>
+
     </div>
   )
 }
