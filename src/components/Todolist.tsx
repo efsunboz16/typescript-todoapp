@@ -1,18 +1,21 @@
 import React from 'react'
-import { TiDelete } from "react-icons/ti";
-import { BsChatSquareText } from "react-icons/bs";
-
+import Todo from './Todoo'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
+import { TodoType } from '../types/Types'
 
 function Todolist() {
+
+    const { todos } = useSelector((state: RootState) =>
+        state.todo
+    )
+
     return (
         <div className='w-1/2 '>
-            <div className='flex justify-between w-full bg-slate-200 mt-4 h-16 items-center p-3 rounded-xl shadow-2xl'>
-                <p className='w-2/3 '>dsfvdfadf</p>
-                <div className='w-1/5 flex justify-between text-3xl'>
-                    <TiDelete className='cursor-pointer' />
-                    <BsChatSquareText className='cursor-pointer' />
-                </div>
-            </div>
+            {todos && todos.map((todo: TodoType) => (
+                <Todo key={todo.id} todoProps={todo} />
+            ))}
+
         </div>
     )
 }
